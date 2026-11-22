@@ -1,0 +1,39 @@
+kode_bps,nama_provinsi,pulau,latitude,longitude
+11,Aceh,Sumatera,4.695135,96.749399
+12,Sumatera Utara,Sumatera,2.1153547,99.5450974
+13,Sumatera Barat,Sumatera,-0.7399397,100.8000051
+14,Riau,Sumatera,0.293347,101.706829
+15,Jambi,Sumatera,-1.4851831,102.4380581
+16,Sumatera Selatan,Sumatera,-3.3194374,104.914704
+17,Bengkulu,Sumatera,-3.5778471,102.3463875
+18,Lampung,Sumatera,-4.5585849,105.4068079
+19,Kepulauan Bangka Belitung,Sumatera,-2.7410513,106.4405872
+21,Kepulauan Riau,Sumatera,3.9456514,108.1428669
+31,DKI Jakarta,Jawa,-6.2087634,106.845599
+32,Jawa Barat,Jawa,-6.917464,107.619123
+33,Jawa Tengah,Jawa,-7.150975,110.1402594
+34,DI Yogyakarta,Jawa,-7.7955798,110.3694896
+35,Jawa Timur,Jawa,-7.5360639,112.2384017
+36,Banten,Jawa,-6.4058172,106.0640179
+51,Bali,Bali & Nusa Tenggara,-8.4095178,115.188916
+52,Nusa Tenggara Barat,Bali & Nusa Tenggara,-8.6529334,117.3616476
+53,Nusa Tenggara Timur,Bali & Nusa Tenggara,-8.6573819,121.0793705
+61,Kalimantan Barat,Kalimantan,-0.2787808,111.4752851
+62,Kalimantan Tengah,Kalimantan,-1.6814878,113.3823545
+63,Kalimantan Selatan,Kalimantan,-3.0926415,115.2837585
+64,Kalimantan Timur,Kalimantan,0.5386586,116.419389
+65,Kalimantan Utara,Kalimantan,3.0730929,116.04139
+71,Sulawesi Utara,Sulawesi,0.6246932,123.9750018
+72,Sulawesi Tengah,Sulawesi,-1.4300254,121.4456179
+73,Sulawesi Selatan,Sulawesi,-3.6687994,119.9740534
+74,Sulawesi Tenggara,Sulawesi,-4.14491,122.174605
+75,Gorontalo,Sulawesi,0.6999372,122.4467238
+76,Sulawesi Barat,Sulawesi,-2.8441371,119.2320784
+81,Maluku,Maluku & Papua,-3.2384616,130.1452734
+82,Maluku Utara,Maluku & Papua,1.5709993,127.8087693
+91,Papua Barat,Maluku & Papua,-1.3361154,133.1747162
+92,Papua Barat Daya,Maluku & Papua,-0.87897,131.2544
+93,Papua Selatan,Maluku & Papua,-7.4854,139.8872
+94,Papua,Maluku & Papua,-4.269928,138.0803529
+95,Papua Tengah,Maluku & Papua,-3.5516,136.2366
+96,Papua Pegunungan,Maluku & Papua,-4.0954,139.0833
