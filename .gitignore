@@ -1,31 +1,47 @@
+
+# Logs dan file sistem
 *.log
 .DS_Store
+Thumbs.db
+
+# Environment dan informasi rahasia
 .env
-.env.backup
-.env.production
+.env.*
+!.env.example
+
+# Konfigurasi lokal
 .phpactor.json
-.phpunit.result.cache
+/auth.json
+Homestead.json
+Homestead.yaml
+
+# IDE
 /.fleet
 /.idea
 /.nova
-/.phpunit.cache
 /.vscode
 /.zed
-/auth.json
+
+# Dependencies
 /node_modules
-/public/build
+/vendor
+
+# Laravel storage dan cache
 /public/hot
 /public/storage
 /storage/*.key
 /storage/pail
-/vendor
-Homestead.json
-Homestead.yaml
-Thumbs.db
+/.phpunit.cache
+.phpunit.result.cache
 
-data/raw/big_data_ecommerce_5juta.parquet
+# Build Vite
+/public/build
 
-data/raw/big_data_ecommerce_5juta.parquet
+# Dataset mentah berukuran besar
+data/raw/*.parquet
+data/raw/*.csv
+data/raw/*.zip
 
+# Python cache
 __pycache__/
 *.py[cod]

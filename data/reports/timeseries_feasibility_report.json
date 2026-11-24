@@ -1,0 +1,49 @@
+{
+    "total_observations": 33,
+    "start_period": "2024-02",
+    "end_period": "2026-10",
+    "target_column": "nilai_transaksi_netto_idr",
+    "checks": {
+        "missing_values": 0,
+        "negative_values": 0,
+        "zero_values": 0,
+        "validity_status": "PASS: Tidak ada nilai null atau negatif.",
+        "expected_periods": 33,
+        "actual_periods": 33,
+        "has_period_gaps": false,
+        "missing_dates": [],
+        "continuity_status": "PASS: Seluruh periode berurutan secara kontinu tanpa gap.",
+        "sample_size_adequate": true,
+        "sample_size_status": "PASS: Jumlah observasi (33 bulan) mencukupi untuk pemodelan deret waktu bulanan.",
+        "outlier_count": 1,
+        "outlier_periods": [
+            "2026-10"
+        ]
+    },
+    "stationarity": {
+        "raw_series": {
+            "adf_statistic": -3.484649851337503,
+            "p_value": 0.008390181560799166,
+            "critical_values": {
+                "1%": -3.653519805908203,
+                "5%": -2.9572185644531253,
+                "10%": -2.6175881640625
+            },
+            "is_stationary": true,
+            "conclusion": "Stasioner (p < 0.05)"
+        },
+        "first_difference": {
+            "adf_statistic": -6.684106391392076,
+            "p_value": 4.268959976651079e-09,
+            "critical_values": {
+                "1%": -3.661428725118324,
+                "5%": -2.960525341210433,
+                "10%": -2.6193188033298647
+            },
+            "is_stationary": true,
+            "conclusion": "Stasioner pada first difference (d=1)"
+        }
+    },
+    "is_feasible": true,
+    "recommendation": "Data deret waktu layak untuk ARIMA. Differencing yang direkomendasikan adalah d=0."
+}

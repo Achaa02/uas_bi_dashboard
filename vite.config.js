@@ -11,6 +11,8 @@ export default defineConfig({
         tailwindcss(),
     ],
     server: {
+        cors: true,
+        host: true,
         watch: {
             ignored: ['**/storage/framework/views/**'],
         },

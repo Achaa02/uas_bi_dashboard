@@ -1,0 +1,97 @@
+{
+    "model_name": "ARIMA",
+    "order": [
+        2,
+        1,
+        3
+    ],
+    "order_str": "ARIMA(2, 1, 3)",
+    "split": {
+        "train_months": 26,
+        "train_start": "2024-02",
+        "train_end": "2026-03",
+        "test_months": 7,
+        "test_start": "2026-04",
+        "test_end": "2026-10"
+    },
+    "arima_metrics": {
+        "mae": 7377140625.031633,
+        "rmse": 8977293443.058771,
+        "mape": 17.608142996845867
+    },
+    "naive_baseline_metrics": {
+        "mae": 6681950000.0,
+        "rmse": 8453387231.610821,
+        "mape": 16.144029098035944
+    },
+    "comparison": {
+        "mape_difference_pct_points": -1.46,
+        "rmse_improvement_pct": -6.2,
+        "is_superior_to_baseline": false
+    },
+    "detailed_test_predictions": [
+        {
+            "period": "2026-04",
+            "actual": 50744353000.0,
+            "predicted": 51577851100.818375,
+            "error": -833498100.8183746,
+            "error_pct": 1.642543557148861,
+            "lower_bound_95": 44865164111.19219,
+            "upper_bound_95": 58290538090.44456
+        },
+        {
+            "period": "2026-05",
+            "actual": 46040690000.0,
+            "predicted": 50655182585.1396,
+            "error": -4614492585.139603,
+            "error_pct": 10.022639941190288,
+            "lower_bound_95": 44108754250.77484,
+            "upper_bound_95": 57201610919.504364
+        },
+        {
+            "period": "2026-06",
+            "actual": 50165035000.0,
+            "predicted": 45585205049.47317,
+            "error": 4579829950.526833,
+            "error_pct": 9.129526074340092,
+            "lower_bound_95": 38742259271.08554,
+            "upper_bound_95": 52428150827.860794
+        },
+        {
+            "period": "2026-07",
+            "actual": 59153929000.0,
+            "predicted": 49100108438.50587,
+            "error": 10053820561.494133,
+            "error_pct": 16.99603176230971,
+            "lower_bound_95": 42458712399.89411,
+            "upper_bound_95": 55741504477.11762
+        },
+        {
+            "period": "2026-08",
+            "actual": 47991521000.0,
+            "predicted": 59918226277.49432,
+            "error": -11926705277.494324,
+            "error_pct": 24.85169260939724,
+            "lower_bound_95": 52492005770.443214,
+            "upper_bound_95": 67344446784.54543
+        },
+        {
+            "period": "2026-09",
+            "actual": 46438665000.0,
+            "predicted": 49729406567.61127,
+            "error": -3290741567.611267,
+            "error_pct": 7.086210526532723,
+            "lower_bound_95": 42312552012.84421,
+            "upper_bound_95": 57146261122.37833
+        },
+        {
+            "period": "2026-10",
+            "actual": 30527551000.0,
+            "predicted": 46868447332.1369,
+            "error": -16340896332.136902,
+            "error_pct": 53.52835650700216,
+            "lower_bound_95": 39398441911.336136,
+            "upper_bound_95": 54338452752.93767
+        }
+    ]
+}

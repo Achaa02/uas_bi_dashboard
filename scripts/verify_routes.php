@@ -5,13 +5,18 @@ $app = require_once __DIR__ . '/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $urls = [
-    '/' => 'Dashboard Utama',
+    '/' => '/publik',
     '/publik' => 'Pemetaan Pola Konsumsi dan Daya Beli Digital di Indonesia',
+    '/tren' => 'Tren E-Commerce Indonesia',
+    '/tren-ecommerce' => 'Tren E-Commerce Indonesia',
     '/pola-konsumsi' => 'Pola Konsumsi',
     '/daya-beli-digital' => 'Daya Beli BPS',
     '/analisis-spasial' => 'Peta Indonesia Interaktif',
     '/data-explorer' => 'Data Explorer',
     '/metodologi' => 'Metodologi',
+    '/analisis-tren' => '20 Chart Analitik & Pemetaan Insight Bisnis',
+    '/insight' => '20 Chart Analitik & Pemetaan Insight Bisnis',
+    '/prediksi' => 'Prediksi Nilai Transaksi E-Commerce (ARIMA)',
     '/laporan-ekspor' => 'Ekspor Laporan',
     '/api/province/31' => '"provinsi":"DKI Jakarta"',
     '/api/spasial/geojson' => '"FeatureCollection"',
@@ -30,15 +35,26 @@ foreach ($urls as $url => $expectedContent) {
     $status = $response->getStatusCode();
     $content = $response->getContent();
     
-    $contains = str_contains($content, $expectedContent);
-    $pass = ($status === 200 && $contains);
-    
-    printf("%-25s | Status: %d | Contains Expected: %s | Result: %s\n", 
-        $url, 
-        $status, 
-        $contains ? 'YES' : 'NO', 
-        $pass ? 'PASS' : 'FAIL'
-    );
+    if ($url === '/') {
+        $target = $response->headers->get('Location') ?? '';
+        $pass = ($status === 302 && str_contains($target, 'publik'));
+        printf("%-25s | Status: %d | Redirects to: %s | Result: %s\n", 
+            $url, 
+            $status, 
+            $target ?: 'NONE', 
+            $pass ? 'PASS' : 'FAIL'
+        );
+    } else {
+        $contains = str_contains($content, $expectedContent);
+        $pass = ($status === 200 && $contains);
+        
+        printf("%-25s | Status: %d | Contains Expected: %s | Result: %s\n", 
+            $url, 
+            $status, 
+            $contains ? 'YES' : 'NO', 
+            $pass ? 'PASS' : 'FAIL'
+        );
+    }
     
     if (!$pass) {
         $allOk = false;

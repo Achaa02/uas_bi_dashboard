@@ -6,9 +6,15 @@ use Tests\TestCase;
 
 class DashboardTest extends TestCase
 {
-    public function test_dashboard_index_renders_successfully(): void
+    public function test_dashboard_root_redirects_to_publik(): void
     {
         $response = $this->get('/');
+        $response->assertRedirect('/publik');
+    }
+
+    public function test_dashboard_index_renders_successfully(): void
+    {
+        $response = $this->get('/peneliti');
         $response->assertStatus(200);
         $response->assertSee('Dashboard Utama');
         $response->assertSee('TOTAL TRANSAKSI');
@@ -23,13 +29,28 @@ class DashboardTest extends TestCase
         $response = $this->get('/publik');
         $response->assertStatus(200);
         $response->assertSee('Pemetaan Pola Konsumsi dan Daya Beli Digital di Indonesia');
-        $response->assertSee('TOTAL TRANSAKSI');
-        $response->assertSee('NILAI TRANSAKSI NETTO');
-        $response->assertSee('RATA-RATA NILAI TRANSAKSI');
-        $response->assertSee('KATEGORI PRODUK');
-        $response->assertSee('PLATFORM E-COMMERCE');
-        $response->assertSee('Unduh Laporan');
+        $response->assertSee('Total Transaksi');
+        $response->assertSee('Nilai Transaksi Netto');
+        $response->assertSee('Rata-rata Nilai Transaksi');
+        $response->assertSee('Total Diskon Voucher');
+        $response->assertSee('Rata-rata Durasi Pengiriman');
         $response->assertSee('publicMap');
+        $response->assertSee('Prediksi Nilai Transaksi E-Commerce (ARIMA)');
+        $response->assertSee('arimaForecastChart');
+        $response->assertSee('Akurasi Model (MAPE)');
+        $response->assertSee('Batas Atas (95%)');
+    }
+
+    public function test_prediksi_page_renders_successfully(): void
+    {
+        $response = $this->get('/prediksi');
+        $response->assertStatus(200);
+        $response->assertSee('Prediksi Nilai Transaksi E-Commerce (ARIMA)');
+        $response->assertSee('Batas Atas (95%)');
+        $response->assertSee('Batas Bawah (95%)');
+        $response->assertSee('Akurasi Model (MAPE)');
+        $response->assertSee('Faktor yang Diprediksi Mempengaruhi Nilai Transaksi');
+        $response->assertSee('arimaForecastChart');
     }
 
     public function test_pola_konsumsi_renders_successfully(): void
@@ -56,6 +77,61 @@ class DashboardTest extends TestCase
         $response->assertSee('Total Diskon Voucher');
         $response->assertSee('Rata-Rata Durasi Pengiriman');
         $response->assertSee('choroplethMap');
+    }
+
+    public function test_analisis_tren_renders_all_20_charts_successfully(): void
+    {
+        $response = $this->get('/analisis-tren');
+        $response->assertStatus(200);
+        $response->assertSee('20 Chart Analitik');
+        $response->assertSee('Tren Jumlah Transaksi');
+        $response->assertSee('Perbandingan Nilai Transaksi');
+        $response->assertSee('Kontribusi Platform E-Commerce');
+        $response->assertSee('Top 10 Kategori Produk');
+        $response->assertSee('Distribusi Harga Produk');
+        $response->assertSee('Pola Transaksi per Jam');
+        $response->assertSee('Performa Hari dalam Seminggu');
+        $response->assertSee('Peta Kepadatan Transaksi');
+        $response->assertSee('Top 10 Provinsi');
+        $response->assertSee('Proporsi Pengiriman Tepat Waktu');
+        $response->assertSee('Rata-rata Durasi Pengiriman');
+        $response->assertSee('Metode Pembayaran');
+        $response->assertSee('Nilai Diskon per Platform');
+        $response->assertSee('Rasio Diskon terhadap Bruto');
+        $response->assertSee('Customer Repeat Order Rate');
+        $response->assertSee('Distribusi Usia Pembeli');
+        $response->assertSee('Distribusi Gender Pembeli');
+        $response->assertSee('Korelasi Diskon vs Nilai Transaksi');
+        $response->assertSee('RFM Customer Segmentation');
+        $response->assertSee('Indikator BPS (Daya Beli)');
+    }
+
+    public function test_public_insight_renders_successfully(): void
+    {
+        $response = $this->get('/insight');
+        $response->assertStatus(200);
+        $response->assertSee('20 Chart Analitik');
+        $response->assertSee('Customer Repeat Order Rate');
+        $response->assertSee('RFM Customer Segmentation');
+    }
+
+    public function test_public_tren_ecommerce_renders_successfully(): void
+    {
+        $response = $this->get('/tren');
+        $response->assertStatus(200);
+        $response->assertSee('Tren E-Commerce Indonesia');
+        $response->assertSee('Total Nilai Transaksi');
+        $response->assertSee('Total Transaksi');
+        $response->assertSee('Total Diskon Voucher');
+        $response->assertSee('Rata-rata Durasi Pengiriman');
+        $response->assertSee('Rata-rata Nilai Transaksi');
+        $response->assertSee('trenGmvLineChart');
+        $response->assertSee('topProvHorizontalChart');
+        $response->assertSee('platformDonutChart');
+        $response->assertSee('categoryBarChart');
+        $response->assertSee('aovLineChart');
+        $response->assertSee('Prediksi Nilai Transaksi');
+        $response->assertSee('prediksiModal');
     }
 
     public function test_api_spasial_geojson_returns_valid_geojson_feature_collection(): void
